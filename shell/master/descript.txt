@@ -1,0 +1,14 @@
+charset,Shift_JIS
+type,shell
+name,コンフィズリー
+
+seriko.use_self_alpha,1
+
+sakura.bindgroup200.name,アクセサリー,リボン,ribbon
+sakura.bindgroup201.name,アクセサリー,ボンボン,ribbon
+sakura.bindgroup200.default,1
+
+kero.bindgroup200.name,アクセサリー,リボン横,ribbon_side
+kero.bindgroup201.name,アクセサリー,リボン前,ribbon_front
+kero.bindgroup202.name,アクセサリー,リボン後ろ,ribbon_back
+kero.bindgroup200.default,1

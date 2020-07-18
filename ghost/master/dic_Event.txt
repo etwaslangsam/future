@@ -1,0 +1,290 @@
+＊OnCacheRestore
+＞OnSatoriLoad
+＊OnSatoriLoad
+＄文「＊」の重複回避	有効、起動中
+＄単語群「＊」の重複回避	有効、トーク中
+＄自動挿入ウェイトタイプ	無効
+
+＊OnCacheSuspend
+＞OnSatoriUnload
+＊OnSatoriUnload
+＄トーク予約のキャンセル	＊
+＄全タイマ解除	実行
+
+＃─────────
+＃着せ替え反応
+＃─────────
+＊OnShellChanging
+：（Reference0）に着替えます。
+：覗いちゃダメですよ。
+
+＊OnShellChanged
+：（Reference0）に着替えました。
+：どうでしょう。
+
+＃─────────
+＃最小化反応
+＃─────────
+＊OnWindowStateRestore
+＞最小化解除
+
+＊最小化解除
+\0\s[21]あやうくタイムパトロールに見つかるところだったのです。\1\s[1008]\e
+
+＃─────────
+＃選択肢無視反応
+＃─────────
+＊OnChoiceTimeout
+\0\s[20]ガーン、無視……。\e
+
+＃─────────
+＃時間イベント
+＃─────────
+＊OnHourTimeSignal
+＞（現在月）月（現在日）日	（現在時）==0
+＞時報
+
+＊時報
+\0\s[5]（現在時）時なのです。\e
+＊時報
+\1\s[1005]（現在時）時だよ。\e
+
+＃─────────
+＃時計合わせ
+＃─────────
+＊OnSNTPBegin
+：（Reference0）から正しい時間を取得中。
+
+＊OnSNTPCompare
+：サーバ　　（Reference1）
+ローカル　（Reference2）
+＞時計時間ぴったり	（Reference3）＝＝0
+＞時計のずれが少し	（Reference3）＜5
+：えーと、（Reference3）秒ずれてますね。合わせますか？
+
+＿◯合わせる	時間を合わせる
+＿◯合わせない	時間を合わせない
+
+＊時間を合わせる
+：\6合わせたよ。
+
+＊時間を合わせない
+：じゃ、放っておくね。
+＊時計時間ぴったり
+：ぴったり合ってるよ。
+：さすがですね。
+＊時計のずれが少し
+：（Reference3）秒ずれてるけど……これは誤差かな。
+
+＿◯合わせる	時間を合わせる
+＿◯合わせない	時間を合わせない
+＊OnSNTPCorrect
+：時間を合わせたよ。
+
+＊OnSNTPFailure
+：失敗……繋がらない？
+
+＃─────────
+＃インストール反応
+＃─────────
+＊OnInstallBegin
+：インストールするね。
+
+＊OnInstallComplete
+：（replace（バイト値,１）（Reference1）（バイト値,１）\（バイト値,１）\\）をインストールしたよ。
+
+＊OnInstallFailure
+：失敗みたい。
+：原因は「（Reference0）」だそうです。
+
+＊OnInstallRefuse
+：これ、「（replace（バイト値,１）（Reference0）（バイト値,１）\（バイト値,１）\\）」さんのみたいだよ。
+本人に渡してあげてね。
+
+＃─────────
+＃ダウンロード反応
+＃─────────
+＊OnURLDropping
+：「（Reference0）」からダウンロード中してるよ。
+
+＊OnURLDropped
+：ダウンロードが終わったよ。
+：ファイルは「（Reference0）」にありますよ。
+
+＊OnURLDropFailure
+：ダウンロードに失敗……。
+：原因は「（Reference1）」だそうです。
+
+＃─────────
+＃ネットワーク更新反応
+＃─────────
+＊OnUpdateBegin
+\0\s[0]電脳ネットワークに接続中なのです。
+
+＊OnUpdateReady
+\0\s[5]（Reference0）個のファイルが更新されてるのです。
+
+＊OnUpdateComplete
+＞ネットワーク更新（Reference0）
+
+＊ネットワーク更新none
+\0\s[0]更新はなかったのです。\e
+
+＊ネットワーク更新changed
+\0\s[22]ネットワーク更新、完了したのです！
+\1\s[1011]お疲れ様、えぬ子ちゃん。\e
+
+＊OnUpdateFailure
+＞ネットワーク更新（Reference0）
+
+＊ネットワーク更新timeout
+\0\s[4]通信が途切れたのです。\e
+
+＊ネットワーク更新md5 miss
+\0\s[4]データが一致しなかったのです。\e
+
+＊ネットワーク更新404
+\0\s[4]更新用ファイルが見つからなかったのです。\e
+
+＊ネットワーク更新artificial
+\0\s[0]中断するのです。\e
+
+＃─────────
+＃ファイル作成反応
+＃─────────
+＊OnUpdatedataCreating
+：更新ファイルを作成するよ。
+
+＊OnUpdatedataCreated
+：更新ファイルの作成が終わったよ。
+
+＊OnNarCreating
+：narファイルを作るよ。
+
+＊OnNarCreated
+：narファイルが出来上がったよ！
+
+＃─────────
+＃入力反応
+＃─────────
+＊OnUserInput
+＞（Reference0）をタイムアウト	（compare（バイト値,１）（Reference1）（バイト値,１）timeout）
+＞（Reference0）を空打ちされた	（is_empty（バイト値,１）（Reference1））
+＄（Reference0）	（Reference1）
+＞（Reference0）を教えてもらった
+
+＊OnUserInputCancel
+＞（Reference0）を空打ちされた	（compare,（Reference1）,close）
+
+＃─────────
+＃
+＃─────────
+＊OnKeyPress
+＞（Reference0）が押された
+
+＃─────────
+＃
+＃─────────
+＊OnMouseDoubleClick
+＞（Reference3）（Reference4）つつかれ	（Reference5）＝＝0
+
+＊OnMouseWheel
+＞（Reference3）（Reference4）ころころ上方向	（Reference2）＞０
+＞（Reference3）（Reference4）ころころ下方向	（Reference2）＜０
+＞（Reference3）（Reference4）ころころ
+
+＃─────────
+＃メールチェック
+＃─────────
+＊OnBIFFBegin
+：\_q（Reference2）
+\_qメールチェック中だよ。
+＊OnBIFFComplete
+＞メールがない	（Reference0）==0
+：\_q（Reference2）
+（Reference0）通／（Reference1）バイト
+\_qメールが届いてるね。
+
+＿メーラを開く
+＿何もしない	メールチェック何もしない
+＊OnBIFF2Complete
+＞メールがない	（Reference0）==0
+＞メールが増えた	（Reference3）>0
+：\_q（Reference2）
+（Reference0）通／（Reference1）バイト
+\_q新着メールはなかったよ。
+
+＿メーラを開く
+＿何もしない	メールチェック何もしない
+＊メールが増えた
+：\_q（Reference2）
+（Reference0）通／（Reference1）バイト
+\_q新着メールが（Reference3）通あるよ。
+
+＿メーラを開く
+＿何もしない	メールチェック何もしない
+＊メーラを開く
+\![open,mailer]
+＊メールチェック何もしない
+\0\b[-1]\1\b[-1]
+＊メールがない
+：\_q（Reference2）
+\_qメールはなかったよ。
+＊OnBIFFFailure
+＞（Reference0）によりメールチェック失敗
+：メールチェック失敗。原因は「（Reference0）」みたい。
+＊defectによりメールチェック失敗
+：メールチェック失敗。
+＊kickによりメールチェック失敗
+：ＩＤかパスワードが違うみたい。
+＊timeoutによりメールチェック失敗
+：メールサーバが応答なし。
+サーバの設定が違うか、それとも混んでるのかも。
+
+＃─────────
+＃ヘッドライン
+＃─────────
+＊OnHeadlinesenseBegin
+：「（Reference0）」のヘッドラインを取得中。
+＊OnHeadlinesense.OnFind
+＞読み上げフェーズ（Reference2）
+＊読み上げフェーズFirst
+：\b[2]「（Reference0）」ヘッドライン。
+（Reference3）
+＿続きを読む
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げフェーズFirst and Last
+：\b[2]「（Reference0）」ヘッドライン。
+（Reference3）
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げフェーズLast
+：\b[2]（Reference3）
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げフェーズNext
+：\b[2]（Reference3）
+＿続きを読む	
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げ中止
+：\b[-1]
+＊OnHeadlinesenseComplete
+：更新されてなかったよ。
+＊OnHeadlinesenseFailure
+：ヘッドラインセンス失敗。
+＞（Reference0）によりヘッドラインセンス失敗
+：理由は（Reference0）だそうです。
+＊can't downloadによりヘッドラインセンス失敗
+：ダウンロードできなかったよ。
+＊can't analyzeによりヘッドラインセンス失敗
+：……解析失敗。
+：サイトのデザインが変更されたのかな？　最新版のヘッドラインセンサがあれば入れ替えてくださいね。
+
+＃─────────
+＃
+＃─────────
+＊OnTalk
+＞（Reference1）	（Reference0）
+（）
