@@ -2,15 +2,12 @@
 ＃
 ＃─────────
 ＊sakura.recommendsites
-配布サイト
-
-＊sakura.recommendsites
-ほっとぺっぱぁ団
+配布元
 https://hotpepar.blogspot.com/
 
 
 ＊sakura.recommendsites
-連絡先
+バグ報告
 https://goo.gl/forms/qJhnaKjUfVtcOWSk1
 
 

@@ -27,7 +27,11 @@
 ＃─────────
 ＃最小化反応
 ＃─────────
+＊OnWindowStateMinimize
+＄手動セーブ	実行
+
 ＊OnWindowStateRestore
+＄手動セーブ	実行
 ＞最小化解除
 
 ＊最小化解除
@@ -44,7 +48,9 @@
 ＃─────────
 ＊OnHourTimeSignal
 ＞（現在月）月（現在日）日	（現在時）==0
-＞時報
+
+＊OnMinuteChange
+＞時報	（現在分）==０
 
 ＊時報
 \0\s[5]（現在時）時なのです。\e
@@ -187,13 +193,19 @@
 ＃─────────
 ＃
 ＃─────────
+＊OnMouseClick
+＞（Reference3）（Reference4）つつかれ	（Reference5）==0&&（is_empty,（Reference4））==0
+
 ＊OnMouseDoubleClick
-＞（Reference3）（Reference4）つつかれ	（Reference5）＝＝0
+＞（Reference3）つつかれ	（Reference5）==0&&（is_empty,（Reference4））
 
 ＊OnMouseWheel
 ＞（Reference3）（Reference4）ころころ上方向	（Reference2）＞０
 ＞（Reference3）（Reference4）ころころ下方向	（Reference2）＜０
 ＞（Reference3）（Reference4）ころころ
+
+＊OnMouseHover
+＞（Reference3）（Reference4）注視	（Status）!=talking
 
 ＃─────────
 ＃メールチェック
