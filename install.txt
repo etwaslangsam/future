@@ -2,4 +2,4 @@ charset,Shift_JIS
 name,�݂炢�̂ӂ날
 type,ghost
 directory,future_floa
-refresh,1
+refresh,0

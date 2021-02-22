@@ -9,12 +9,10 @@
 ＊OnCacheSuspend
 ＞OnSatoriUnload
 ＊OnSatoriUnload
-＄トーク予約のキャンセル	＊
-＄全タイマ解除	実行
 ＄手動セーブ	実行
 
 ＃─────────
-＃着せ替え反応
+＃シェル切り替え反応
 ＃─────────
 ＊OnShellChanging
 ：（Reference0）に着替えます。
@@ -23,6 +21,17 @@
 ＊OnShellChanged
 ：（Reference0）に着替えました。
 ：どうでしょう。
+
+＃─────────
+＃
+＃─────────
+＊OnDressupChanged
+（when，（Reference2）==1
+	，（set、（Reference0）（Reference1）、1）
+	，（set、（Reference0）（Reference1）、）
+）
+＄手動セーブ	実行
+＞（Reference0）（Reference1）オン		（Reference2）
 
 ＃─────────
 ＃最小化反応
@@ -126,6 +135,9 @@
 ＃─────────
 ＃ネットワーク更新反応
 ＃─────────
+＠homeurl
+http://ghosthacking.webcrow.jp/update/future/
+
 ＊OnUpdateBegin
 \0\s[0]電脳ネットワークに接続中なのです。
 

@@ -4,10 +4,10 @@ type,ghost
 craftman,etwaslangsam
 craftmanw,‚Ä‚É‚Ä‚É
 craftmanurl,http://ghosthacking.webcrow.jp/index.html
-homeurl,https://raw.githubusercontent.com/etwaslangsam/future/master/
+homeurl,http://ghosthacking.webcrow.jp/update/future/
 readme,readme.txt
 sakura.name,Nq
-kero.name,‚Ó‚ë‚ 
+kero.name,_Šyâ‚Ó‚ë‚ 
 sakura.seriko.defaultsurface,0
 kero.seriko.defaultsurface,10
 balloon.defaultsurface,0
