@@ -1,7 +1,307 @@
+＊OnCacheRestore
+＞OnSatoriLoad
+＊OnSatoriLoad
+＄文「＊」の重複回避	有効、起動中
+＄単語群「＊」の重複回避	有効、トーク中
+＄自動挿入ウェイトタイプ	無効
+＄会話時サーフェス戻し	有効
+
+＊OnCacheSuspend
+＞OnSatoriUnload
+＊OnSatoriUnload
+
+＃─────────シェル切り替え反応
+＊OnShellChanging
+\0\s[0]（Reference0）に着替えるのです。\1\s[1009]覗いちゃダメだからね。\e
+
+＊OnShellChanged
+（set,現在シェル,（Reference0））
+＞（Reference0）に着替えた
+\0\s[23]（Reference0）に着替えたのです！\1\s[1005]\cどう、かな。（ユーザ名）くん似合ってる？
 
 ＃─────────
-＃初回起動
+＊OnDressupChanged
+（when，（Reference2）==1
+	，（set、（Reference0）（Reference1）、1）
+	，（set、（Reference0）（Reference1）、）
+）
+＄手動セーブ	実行
+＞（Reference0）（Reference1）オン		（Reference2）
+
+＃─────────最小化反応
+＊OnWindowStateMinimize
+＄手動セーブ	実行
+
+＊OnWindowStateRestore
+＄手動セーブ	実行
+＞最小化解除
+
+＊最小化解除
+\0\s[21]あやうくタイムパトロールに見つかるところだったのです。\1\s[1008]\e
+
+＃─────────選択肢無視反応
+＊OnChoiceTimeout
+\0\s[20]ガーン、無視……。\e
+
+＃─────────時間イベント
+＊OnHourTimeSignal
+＞（現在月）月（現在日）日	（現在時）==0
+
+＊OnMinuteChange
+＞時報	（現在分）==０
+
+＊時報
+\0\s[5]（現在時）時なのです。\e
+＊時報
+\1\s[1005]（現在時）時だよ。\e
+
+＃─────────時計合わせ
+＊OnSNTPBegin
+：（Reference0）から正しい時間を取得中。
+
+＊OnSNTPCompare
+：サーバ　　（Reference1）
+ローカル　（Reference2）
+＞時計時間ぴったり	（Reference3）＝＝0
+＞時計のずれが少し	（Reference3）＜5
+：えーと、（Reference3）秒ずれてますね。合わせますか？
+
+＿◯合わせる	時間を合わせる
+＿◯合わせない	時間を合わせない
+
+＊時間を合わせる
+：\6合わせたよ。
+
+＊時間を合わせない
+：じゃ、放っておくね。
+＊時計時間ぴったり
+：ぴったり合ってるよ。
+：さすがですね。
+＊時計のずれが少し
+：（Reference3）秒ずれてるけど……これは誤差かな。
+
+＿◯合わせる	時間を合わせる
+＿◯合わせない	時間を合わせない
+＊OnSNTPCorrect
+：時間を合わせたよ。
+
+＊OnSNTPFailure
+：失敗……繋がらない？
+
+＃─────────インストール反応
+＊OnInstallBegin
+\0\s[0]インストールするのです。\e
+
+＊OnInstallComplete
+\0\s[23]（replace（バイト値,１）（Reference1）（バイト値,１）\（バイト値,１）\\）をインストールしたのです！\e
+
+＊OnInstallFailure
+\0\s[20]失敗したのです‥‥。\1\s[1003]原因は「（Reference0）」みたい。\e
+
+＊OnInstallRefuse
+\0\s[21]これは「（replace（バイト値,１）（Reference0）（バイト値,１）\（バイト値,１）\\）」さんのなのです。\1\s[1008]本人に渡してあげてね。\e
+
+＃─────────ダウンロード反応
+＊OnURLDropping
+：「（Reference0）」からダウンロード中してるよ。
+
+＊OnURLDropped
+：ダウンロードが終わったよ。
+：ファイルは「（Reference0）」にありますよ。
+
+＊OnURLDropFailure
+：ダウンロードに失敗……。
+：原因は「（Reference1）」だそうです。
+
+＃─────────ネットワーク更新反応
+＠homeurl
+http://ghosthacking.webcrow.jp/update/future/
+
+＊OnUpdateBegin
+\0\s[0]電脳ネットワークに接続中なのです。
+
+＊OnUpdateReady
+\0\s[5]（Reference0）個のファイルが更新されてるのです。
+
+＊OnUpdateComplete
+（whenlist，（Reference0）==
+	，none，\0\s[0]更新はなかったのです。\e
+	，changed，\0\s[22]ネットワーク更新、完了したのです！\1\s[1011]お疲れ様、えぬ子ちゃん。\e
+）
+
+＊OnUpdateFailure
+（whenlist，（Reference0）==
+	，timeout，\1\s[1002]\0\s[4]通信が途切れたのです。\e
+	，md5 miss，\1\s[1003]\0\s[4]データが一致しなかったのです。\e
+	，404，\1\s[1004]\0\s[4]更新用ファイルが見つからなかったのです。\e
+	，artificial，\1\s[10]\0\s[0]中断するのです。\e
+，\1\s[1008]\0\s[20]よくわからないけど失敗したのです‥‥。\e
+）
+
+＃─────────ファイル作成反応
+＊OnUpdatedataCreating
+：更新ファイルを作成するよ。
+
+＊OnUpdatedataCreated
+：更新ファイルの作成が終わったよ。
+
+＊OnNarCreating
+：narファイルを作るよ。
+
+＊OnNarCreated
+：narファイルが出来上がったよ！
+
+＃─────────入力反応
+＊OnUserInput
+＞（Reference0）をタイムアウト	（compare（バイト値,１）（Reference1）（バイト値,１）timeout）
+＞（Reference0）を空打ちされた	（is_empty（バイト値,１）（Reference1））
+＄（Reference0）	（Reference1）
+＞（Reference0）を教えてもらった
+
+＊OnUserInputCancel
+＞（Reference0）を空打ちされた	（compare,（Reference1）,close）
+
+＃─────────キー押下
+＊OnKeyPress
+＞（Reference0）が押された
+
+＃─────────マウス反応
+＊OnMouseClick
+＞（Reference3）（Reference4）つつかれ	（Reference5）==0&&（is_empty,（Reference4））==0
+
+＊OnMouseDoubleClick
+＞（Reference3）つつかれ	（Reference5）==0&&（is_empty,（Reference4））
+
+＊OnMouseWheel
+＞（Reference3）（Reference4）ころころ上方向	（Reference2）＞０
+＞（Reference3）（Reference4）ころころ下方向	（Reference2）＜０
+＞（Reference3）（Reference4）ころころ
+
+＊OnMouseHover
+＞（Reference3）（Reference4）注視	（Status）!=talking
+
+＃─────────メールチェック
+＊OnBIFFBegin
+：\_q（Reference2）
+\_qメールチェック中だよ。
+＊OnBIFFComplete
+＞メールがない	（Reference0）==0
+：\_q（Reference2）
+（Reference0）通／（Reference1）バイト
+\_qメールが届いてるね。
+
+＿メーラを開く
+＿何もしない	メールチェック何もしない
+＊OnBIFF2Complete
+＞メールがない	（Reference0）==0
+＞メールが増えた	（Reference3）>0
+：\_q（Reference2）
+（Reference0）通／（Reference1）バイト
+\_q新着メールはなかったよ。
+
+＿メーラを開く
+＿何もしない	メールチェック何もしない
+＊メールが増えた
+：\_q（Reference2）
+（Reference0）通／（Reference1）バイト
+\_q新着メールが（Reference3）通あるよ。
+
+＿メーラを開く
+＿何もしない	メールチェック何もしない
+＊メーラを開く
+\![open,mailer]
+＊メールチェック何もしない
+\0\b[-1]\1\b[-1]
+＊メールがない
+：\_q（Reference2）
+\_qメールはなかったよ。
+＊OnBIFFFailure
+＞（Reference0）によりメールチェック失敗
+：メールチェック失敗。原因は「（Reference0）」みたい。
+＊defectによりメールチェック失敗
+：メールチェック失敗。
+＊kickによりメールチェック失敗
+：ＩＤかパスワードが違うみたい。
+＊timeoutによりメールチェック失敗
+：メールサーバが応答なし。
+サーバの設定が違うか、それとも混んでるのかも。
+
+＃─────────ヘッドライン
+＊OnHeadlinesenseBegin
+：「（Reference0）」のヘッドラインを取得中。
+＊OnHeadlinesense.OnFind
+＞読み上げフェーズ（Reference2）
+＊読み上げフェーズFirst
+：\b[2]「（Reference0）」ヘッドライン。
+（Reference3）
+＿続きを読む
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げフェーズFirst and Last
+：\b[2]「（Reference0）」ヘッドライン。
+（Reference3）
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げフェーズLast
+：\b[2]（Reference3）
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げフェーズNext
+：\b[2]（Reference3）
+＿続きを読む	
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+＊読み上げ中止
+：\b[-1]
+＊OnHeadlinesenseComplete
+：更新されてなかったよ。
+＊OnHeadlinesenseFailure
+：ヘッドラインセンス失敗。
+＞（Reference0）によりヘッドラインセンス失敗
+：理由は（Reference0）だそうです。
+＊can't downloadによりヘッドラインセンス失敗
+：ダウンロードできなかったよ。
+＊can't analyzeによりヘッドラインセンス失敗
+：……解析失敗。
+：サイトのデザインが変更されたのかな？　最新版のヘッドラインセンサがあれば入れ替えてくださいね。
+
 ＃─────────
+＊OnTalk
+＞（Reference1）	（Reference0）
+（）
+
+＃────────web拍手
+＊OnWebClap
+\![open,inputbox,拍手送信内容,,--limit=995]
+\1\s[1005]※バグ報告やゴーストに聞きたいこと・言いたいこと（コミュ要望）、感想などお気軽にどうぞ\e
+
+＊拍手送信内容を教えてもらった
+\0\_q『（拍手送信内容）』\_q
+\1（この内容で送信します）
+\_q
+\![*]\q[送信する,SendClap] \![*]\q[やめる,拍手送信内容が空打ちされた]
+\_q\e
+
+＊SendClap
+\![execute,http-post,http://clap.webclap.com/clap.php?id=teniwa,--param=message_body="えぬ子＠（拍手送信内容）",--async=webclap]\![raise,ClearMessage]
+
+＊簡易拍手
+\![execute,http-post,http://clap.webclap.com/clap.php?id=teniwa,--param=message_body="えぬ子＠（選択ラベル）",--async=webclap]\![raise,ClearMessage]
+
+＊ClearMessage
+＄拍手送信内容	
+
+＊拍手送信内容が空打ちされた
+\0φ（中断しますφ）\![raise,ClearMessage]\e
+
+＊OnExecuteHTTPComplete	（Reference1）==webclap
+＞（選択ラベル）が送信された
+\1\s[1005]送信完了。ありがとうございました。\e
+
+＊OnExecuteHTTPFailure	（Reference1）==webclap
+\0φ（（Reference4）φ）\e
+
+＃─────────初回起動
 ＊OnFirstBoot
 ＄次のトーク	君の名は
 \0\s[-1]\1\s[1001]（ユーザ名）くん‥‥あの‥‥。
@@ -29,9 +329,7 @@
 じゃあ、よろしくね、えぬ子ちゃん。
 \0\s[5]流石ママなのです！\e
 
-＃─────────
-＃起動
-＃─────────
+＃─────────起動
 ＊OnBoot
 ＞起動
 
@@ -46,9 +344,7 @@
 \0\s[7]さあパパ！
 ガッとやってチュっと吸ってハァーンなのです！\e
 
-＃─────────
-＃終了
-＃─────────
+＃─────────終了
 ＊OnClose
 ＄トーク予約のキャンセル	＊
 ＄全タイマ解除	実行
@@ -65,9 +361,7 @@
 \0\s[5]私もママに付いていくのです！
 アデューなのです！\e
 
-＃─────────
-＃切り替え反応
-＃─────────
+＃─────────切り替え反応
 ＊OnGhostChanging
 ＞（Reference2）へ変更
 \0\s[7]ママ！ パパが浮気しに行くのです！
@@ -90,9 +384,7 @@
 \0\s[5]ただいまなのです！
 \1\s[1005]ただいま。\e
 
-＃─────────
-＃メニュー
-＃─────────
+＃─────────メニュー
 ＊0つつかれ
 \0\s[5]はいなのです！\w9
 ＞メインメニュー
@@ -104,9 +396,9 @@
 \![*]\q[トークの設定,喋る頻度変更]\n[half]
 \![*]\q[名前を覚えて,名前を教える]\n
  \q[なんでもないよ,なんでもないよ]
-\1■Web拍手
- \![*]\q[メッセージ入力,OnWebClap]\n[half]
- \![*]\q[いいねφ！,簡易拍手1] \![*]\q[かわいい,簡易拍手2] \![*]\q[すき,簡易拍手3]
+\1■Web拍手\n[half]
+\![*]\q[コメント入力,OnWebClap]
+\![*]\q[おもしろい,簡易拍手] ／ \q[かわいい,簡易拍手] ／ \q[すき,簡易拍手]
 \_q\e
 
 ＊何か話して
@@ -116,30 +408,37 @@
 ＊なんでもないよ
 \0\s[0]もういいのです？\e
 
-＃─────────
-＃
-＃─────────
+＃─────────喋り頻度
 ＊喋る頻度変更
-\0\_q
-\![*]\q[好きに話していいよ,６０秒おき]\n[half]
-\![*]\q[つつくまで静かにして,黙ってて]\n
+\0\_qいまφ：（喋り間隔）\n[half]
+ \![*]\q[３０秒,３０秒ごと]／\q[６０秒,６０秒ごと]／\q[９０秒,９０秒ごと]\n[half]
+ \![*]\q[１２０秒,１２０秒ごと]／\q[１５０秒,１５０秒ごと]／\q[１８０秒,１８０秒ごと]\n[half]
+ \![*]\q[喋らない,黙ってて]\n
  \q[なんでもないよ,なんでもないよ]
 \_q\e
 
-＊６０秒おき
-＄喋り間隔	６０秒
-＄喋り間隔誤差	５０％
-＄手動セーブ	実行
-\0\s[5]変更したのです！\e
+＊３０秒ごと
+（set,喋り間隔,３０秒）\![raise,喋り頻度決定]
+＊６０秒ごと
+（set,喋り間隔,６０秒）\![raise,喋り頻度決定]
+＊９０秒ごと
+（set,喋り間隔,９０秒）\![raise,喋り頻度決定]
+＊１２０秒ごと
+（set,喋り間隔,１２０秒）\![raise,喋り頻度決定]
+＊１５０秒ごと
+（set,喋り間隔,１５０秒）\![raise,喋り頻度決定]
+＊１８０秒ごと
+（set,喋り間隔,１８０秒）\![raise,喋り頻度決定]
+
+＊喋り頻度決定
+（set,喋り間隔誤差,５％）（set,手動セーブ,実行）
+\0\s[5]（喋り間隔）に変更したのです！\e
 
 ＊黙ってて
-＄喋り間隔	０秒
-＄手動セーブ	実行
+（set,喋り間隔,０秒）（set,手動セーブ,実行）
 \0\s[0]わかったのです。\e
 
-＃─────────
-＃
-＃─────────
+＃─────────ユーザ名
 ＊名前を教える
 \0\s[20]パパの名前が思い出せないのです‥‥。
 \1\s[1004]えぇ～‥‥。
