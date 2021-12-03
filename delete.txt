@@ -1,2 +1,1 @@
 .gitignore
-ghost\master\dic_Event.txt

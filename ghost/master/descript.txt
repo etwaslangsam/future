@@ -3,7 +3,7 @@ name,‚Ý‚ç‚¢‚Ì‚Ó‚ë‚ 
 type,ghost
 craftman,etwaslangsam
 craftmanw,‚Ä‚É‚Ä‚É
-craftmanurl,http://ghosthacking.webcrow.jp/index.html
+craftmanurl,https://sites.google.com/view/ghost-hacking/home
 homeurl,http://ghosthacking.webcrow.jp/update/future/
 readme,readme.txt
 sakura.name,NŽq
