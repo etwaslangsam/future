@@ -638,3 +638,15 @@ surface.append1000-1999,10
 {
 //satolist.palette.offset,140,120
 }
+
+
+//ƒJ[ƒ\ƒ‹
+sakura.cursor
+{
+	mouseup0,Head,system:hand
+}
+
+kero.cursor
+{
+	mouseup0,Head,system:hand
+}
