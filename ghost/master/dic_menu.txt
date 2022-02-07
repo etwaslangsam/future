@@ -28,7 +28,7 @@
  \![*]\q[‚R‚O•b,‚R‚O•b‚²‚Æ]^\q[‚U‚O•b,‚U‚O•b‚²‚Æ]^\q[‚X‚O•b,‚X‚O•b‚²‚Æ]\n[half]
  \![*]\q[‚P‚Q‚O•b,‚P‚Q‚O•b‚²‚Æ]^\q[‚P‚T‚O•b,‚P‚T‚O•b‚²‚Æ]^\q[‚P‚W‚O•b,‚P‚W‚O•b‚²‚Æ]\n[half]
  \![*]\q[•b”Žw’è,•b”‚ðŽw’è‚·‚é]^\q[’‚ç‚È‚¢,–Ù‚Á‚Ä‚Ä]\n
- \q[‚È‚ñ‚Å‚à‚È‚¢‚æ,‚È‚ñ‚Å‚à‚È‚¢‚æ]
+\q[©,ƒƒCƒ“ƒƒjƒ…[] \q[~,‚È‚ñ‚Å‚à‚È‚¢‚æ]
 \_q\e
 
 –’‚è•p“xŒˆ’è
