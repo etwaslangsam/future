@@ -39,10 +39,19 @@
 ＊最小化解除
 \0\s[21]あやうくタイムパトロールに見つかるところだったのです。\1\s[1008]\e
 
-＃─────────選択肢無視反応
+＃─────────選択肢
 ＊OnChoiceTimeout
 \0\s[20]ガーン、パパが無視するのです‥‥。
 \1\s[1003]えぬ子ちゃん元気だして。\s[10]（ユーザ名）くん、お取り込み中なのかな？\e
+
+＊OnAnchorSelectEx
+＄選択ＩＤ	（Reference1）
+＄選択ラベル	（Reference0）
+＞（Reference1）
+
+＊OnAnchorSelect
+＄選択ＩＤ	（Reference0）
+＞（Reference0）
 
 ＃─────────時間イベント
 ＊OnHourTimeSignal
