@@ -1,5 +1,7 @@
 ＊EventArchives
+\![leave,passivemode]
 \0\b[2]\_q\c\q[←,メインメニュー]\n
+\![*]\q[プロローグ,初回起動] \f[color,red]NEW!\f[default]\n
 \![*]\q[バレンタインデー,VD_a_1]
 \![*]\q[君の名は,YM_1]
 \n\q[×,なんでもないよ]
