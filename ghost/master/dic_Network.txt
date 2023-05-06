@@ -1,4 +1,4 @@
-＃─────────ネットワーク更新反応
+＃─────────ネットワーク更新
 ＠homeurl
 http://nanachi.sakura.ne.jp/narnaloader/data/mirai/
 

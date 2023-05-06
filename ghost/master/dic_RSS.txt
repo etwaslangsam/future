@@ -1,0 +1,61 @@
+＃─────────ヘッドライン
+＃OnAnchorSelectExに
+＃＞OnAnchorSelect.URL	（compare_head,（Reference1）,http://）||（compare_head,（Reference1）,https://）
+＃＊OnAnchorSelect.URL
+＃＄スクリプトの一番頭	\C
+＃\0\j[（Reference1）]
+＃を書き足すのを忘れずに
+
+＊OnHeadlinesenseBegin
+\0\s[0]「（Reference0）」のヘッドラインを取得中なのです。\e
+
+＊OnHeadlinesense.OnFind
+＞読み上げフェーズ（Reference2）
+
+＊読み上げフェーズFirst
+\0\s[0]\b[2]（Reference0）\n[half]
+（Reference3）
+
+＿続きを読む
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+
+＊読み上げフェーズFirst and Last
+\0\s[0]\b[2]（Reference0）\n[half]
+（Reference3）
+
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+
+＊読み上げフェーズLast
+\0\s[0]\b[2]（Reference3）
+
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+
+＊読み上げフェーズNext
+\0\s[0]\b[2]（Reference3）
+
+＿続きを読む	
+＿サイトを開く	（Reference1）
+＿やめる	読み上げ中止
+
+＊読み上げ中止
+\1\s[1005]\0\s[23]以上、最新のヘッドラインなのでした。\e
+
+＊OnHeadlinesenseComplete
+\0\s[21]更新されてなかったみたいなのです。\e
+
+＊OnHeadlinesenseFailure
+\0\s[20]ヘッドラインセンス失敗。\w9
+＞（Reference0）によりヘッドラインセンス失敗
+\1\s[1004]理由は（Reference0）みたい。
+
+＊can't downloadによりヘッドラインセンス失敗
+\0\s[3]情報がダウンロードできなかったのです。\w9
+\1\s[1002]回線になにか問題があるのかな？\e
+
+＊can't analyzeによりヘッドラインセンス失敗
+\0\s[4]‥‥\w5解析失敗。\w9
+\1\s[1003]サイトのデザインが変更されたのかな？\w9
+最新版のヘッドラインセンサがあれば入れ替えてね。\e
