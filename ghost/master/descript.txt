@@ -6,7 +6,7 @@ craftmanw,てにてに
 craftmanurl,https://sites.google.com/view/ghost-hacking/home
 homeurl,http://nanachi.sakura.ne.jp/narnaloader/data/mirai/
 readme,readme.txt
-sakura.name,N子
+sakura.name,えぬ子
 kero.name,神楽坂ふろあ
 sakura.seriko.defaultsurface,0
 kero.seriko.defaultsurface,10

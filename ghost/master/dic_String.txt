@@ -1,5 +1,10 @@
-＃─────────
-＃
+
+＠menu.background.bitmap.filename
+bg.png
+
+＠menu.sidebar.bitmap.filename
+menu_sidebar.png
+
 ＃─────────
 ＊sakura.recommendsites
 配布元
@@ -12,9 +17,7 @@ https://goo.gl/forms/qJhnaKjUfVtcOWSk1
 
 
 
-＃────────
-＃■ポータルサイト
-＃────────
+＃────────ポータルサイト
 ＊sakura.portalsites
 独立伺か研究施設 ばぐとら研究所
 http://ssp.shillest.net/
@@ -50,9 +53,7 @@ https://ghost-info.net/dokuwiki/doku.php
 https://ghostreview.sakura.ne.jp/
 
 
-＃────────
-＃単語群
-＃────────
+＃────────単語群
 ＠透明化
 \![set,alpha,100]\_w[150]\![set,alpha,80]\_w[150]\![set,alpha,60]\_w[150]\![set,alpha,40]\w1
 ＠非透明化
