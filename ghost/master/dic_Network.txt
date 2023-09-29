@@ -1,6 +1,6 @@
 ＃─────────ネットワーク更新
 ＠homeurl
-http://nanachi.sakura.ne.jp/narnaloader/data/mirai/
+http://cherry.narnaloader.ukagaka.net/data/mirai/
 
 ＊OnUpdateBegin
 \0\s[0]電脳ネットワークに接続中なのです。

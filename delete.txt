@@ -1,2 +1,3 @@
 .gitignore
 ghost\master\dic_Event.txt
+ghost\master\bg.png

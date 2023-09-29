@@ -4,7 +4,7 @@ type,ghost
 craftman,etwaslangsam
 craftmanw,‚Ä‚É‚Ä‚É
 craftmanurl,https://sites.google.com/view/ghost-hacking/home
-homeurl,http://nanachi.sakura.ne.jp/narnaloader/data/mirai/
+homeurl,http://cherry.narnaloader.ukagaka.net/data/mirai/
 readme,readme.txt
 sakura.name,‚¦‚Êq
 kero.name,_Šyâ‚Ó‚ë‚ 
