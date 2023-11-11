@@ -153,6 +153,14 @@ element3,overlay,purple/3/oko.png,0,0
 element4,overlay,purple/4/normal.png,0,0
 }
 
+surface26
+{
+element0,overlay,purple/0/base1.png,0,0
+element2,overlay,purple/2/niko.png,0,0
+element3,overlay,purple/3/oko.png,0,0
+element4,overlay,purple/4/hanme.png,0,0
+}
+
 //\1
 
 surface10
@@ -331,7 +339,7 @@ collision1,135,275,236,322,Bust
 
 
 //\0
-surface.append0-7,!1,!4-6
+surface.append0-7,!1,!4-6,26
 {
 animation0.interval,sometimes
 animation0.pattern0,overlay,8000,20,0,0
@@ -339,7 +347,7 @@ animation0.pattern1,overlay,8001,20,0,0
 animation0.pattern2,overlay,8000,80,0,0
 animation0.pattern3,overlay,-1,80,0,0
 }
-surface.append1,9
+surface.append1,9,25
 {
 animation0.interval,sometimes
 animation0.pattern0,overlay,8100,20,0,0
@@ -350,7 +358,7 @@ animation0.pattern3,overlay,-1,80,0,0
 
 
 //\1
-surface.append10,1002-1007,!1004-1006
+surface.append10,1002-1007,!1004-1006,1015-1016
 {
 animation0.interval,sometimes
 animation0.pattern0,overlay,9000,20,0,0
@@ -358,7 +366,7 @@ animation0.pattern1,overlay,9001,20,0,0
 animation0.pattern2,overlay,9000,80,0,0
 animation0.pattern3,overlay,-1,80,0,0
 }
-surface.append1001,1005,1009
+surface.append1001,1005,1009,1014
 {
 animation0.interval,sometimes
 animation0.pattern0,overlay,9100,20,0,0
@@ -391,7 +399,7 @@ animation100.pattern2,overlay,-1,140,0,0
 animation100.pattern3,overlay,8210,140,0,0
 animation100.pattern4,overlay,-1,130,0,0
 }
-surface.append5
+surface.append5,26
 {
 animation100.interval,talk
 animation100.pattern0,overlay,8202,140,0,0
@@ -400,7 +408,7 @@ animation100.pattern2,overlay,-1,140,0,0
 animation100.pattern3,overlay,8202,140,0,0
 animation100.pattern4,overlay,-1,130,0,0
 }
-surface.append8
+surface.append8,22-25,!24
 {
 animation100.interval,talk
 animation100.pattern0,overlay,8207,140,0,0
