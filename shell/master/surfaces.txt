@@ -161,6 +161,24 @@ element3,overlay,purple/3/oko.png,0,0
 element4,overlay,purple/4/hanme.png,0,0
 }
 
+surface27
+{
+element0,overlay,purple/0/base2.png,0,0
+element1,overlay,purple/1/cheek.png,0,0
+element2,overlay,purple/2/zzshock.png,0,0
+element3,overlay,purple/3/oko.png,0,0
+element4,overlay,purple/4/normal.png,0,0
+element5,overlay,purple/a/siitake.png,0,0
+}
+
+surface28
+{
+element0,overlay,purple/0/base1.png,0,0
+element2,overlay,purple/2/a.png,0,0
+element3,overlay,purple/3/oko.png,0,0
+element4,overlay,purple/4/smile.png,0,0
+}
+
 //\1
 
 surface10
@@ -305,6 +323,14 @@ element3,overlay,yellow/3/sad.png,0,0
 element4,overlay,yellow/4/normal.png,0,0
 }
 
+surface1017
+{
+element0,overlay,yellow/0/base1.png,0,0
+element2,overlay,yellow/2/niko.png,0,0
+element3,overlay,yellow/3/normal.png,0,0
+element4,overlay,yellow/4/normal.png,0,0
+}
+
 //########################################################################################
 //‚³‚í‚è”»’è
 
@@ -408,7 +434,7 @@ animation100.pattern2,overlay,-1,140,0,0
 animation100.pattern3,overlay,8202,140,0,0
 animation100.pattern4,overlay,-1,130,0,0
 }
-surface.append8,22-25,!24
+surface.append8,22-25,!24,28
 {
 animation100.interval,talk
 animation100.pattern0,overlay,8207,140,0,0

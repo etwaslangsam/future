@@ -1,6 +1,6 @@
 charset,Shift_JIS
 version,1
-
+option,DisableNoDefineSurfaces
 
 group,0
 {
