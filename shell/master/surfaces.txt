@@ -331,6 +331,16 @@ element3,overlay,yellow/3/normal.png,0,0
 element4,overlay,yellow/4/normal.png,0,0
 }
 
+surface1018
+{
+element0,overlay,yellow/0/base2.png,0,0
+element1,overlay,yellow/1/cheek.png,0,0
+element2,overlay,yellow/2/awa.png,0,0
+element3,overlay,yellow/3/oko.png,0,0
+element4,overlay,yellow/4/normal.png,0,0
+element5,overlay,yellow/a/siitake.png,0,0
+}
+
 //########################################################################################
 //‚³‚í‚è”»’è
 
