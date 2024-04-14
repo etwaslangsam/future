@@ -241,7 +241,7 @@ element4,overlay,yellow/4/toji.png,0,0
 
 surface1007
 {
-element0,overlay,yellow/0/base1.png,0,0
+element0,overlay,yellow/0/base2.png,0,0
 element2,overlay,yellow/2/normal.png,0,0
 element3,overlay,yellow/3/oko.png,0,0
 element4,overlay,yellow/4/normal.png,0,0
