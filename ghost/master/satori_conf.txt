@@ -12,6 +12,11 @@
 ＄対象	ふろあ
 ＄時報の謎	0
 ＄現在シェル	コンフィズリー
+＄ユ誕生月	不明
+＄ユ誕生日	不明
+＄ユ血液型	不明
+＄ユ好物	不明
+＄ユ特技	不明
 ＠SAORI
 calc,saori/ssu.dll,calc
 calc_float,saori/ssu.dll,calc_float
